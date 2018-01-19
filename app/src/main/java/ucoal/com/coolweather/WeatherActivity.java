@@ -1,5 +1,6 @@
 package ucoal.com.coolweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -28,6 +29,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import ucoal.com.coolweather.gson.Forecast;
 import ucoal.com.coolweather.gson.Weather;
+import ucoal.com.coolweather.service.AutoUpdateService;
 import ucoal.com.coolweather.util.HttpUtil;
 import ucoal.com.coolweather.util.Utility;
 
@@ -239,6 +241,8 @@ public class WeatherActivity extends AppCompatActivity {
         sportText.setText(sport);
 
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startActivity(intent);
 
     }
 }
